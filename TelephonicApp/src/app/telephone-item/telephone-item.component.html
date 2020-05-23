@@ -1,0 +1,16 @@
+<div class="card text-center">
+    <div class="card-header">
+      Details
+    </div>
+    <div class="card-body">
+      <!-- <h5 class="card-title">Special title treatment</h5> -->
+      <p class="card-text"> Name : {{selectedItem.name}}</p>
+      <p class="card-text"> Mobile Number : <span *ngIf="!editActive">{{selectedItem.mobile}}</span> 
+        <input *ngIf="editActive" type ="number" placeholder="Mobile Number" [(ngModel)]="mobile">
+    </p>
+      <p class="card-text"> Age : {{selectedItem.age}}</p>
+      <p class="card-text"> Address : {{selectedItem.address}}</p>
+      <button class="btn btn-primary" *ngIf="!editActive" (click)="editNumber()">Edit Number</button>
+      <button class="btn btn-primary" *ngIf="editActive" (click)="save()">Save</button>
+    </div>
+  </div>

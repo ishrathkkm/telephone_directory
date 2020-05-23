@@ -1,0 +1,29 @@
+<h2 class="mt-4">Telephone Directory</h2>
+<div class="row mt-3 mb-3">
+    <div class="col-sm-6">
+    <input class="form-control text-field" placeholder="Search" [(ngModel)]="searchText">
+  </div>
+</div>
+  <div class="row">
+      <div class="col-sm-6">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Mobile Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="each-item" (click)="selectRow(item)" *ngFor="let item of personList | filter: searchText ;  let i = index" [ngClass]="{'active': item.name == selectedName}">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{item.name}}</td>
+                    <td>{{item.mobile}}</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+  <div class="col-sm-6" *ngIf="selectedItem">
+      <app-telephone-item [selectedItem]="selectedItem" [editActive] = "editActive" (emitData)="updateData($event)"></app-telephone-item>
+  </div>
+  </div>

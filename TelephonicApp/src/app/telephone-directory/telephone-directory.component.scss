@@ -1,0 +1,6 @@
+.each-item{
+    cursor: pointer;
+    &.active{
+        background-color: #005d00;
+    }
+}
